@@ -55,7 +55,7 @@
 		}
 		if(!strcmp("Modulo", $operacion)){
 
-			echo "El resultado es: " . ($numero1 % $numero2);
+			echo "<p>El resultado es: </p>" . ($numero1 % $numero2);
 
 		}
 
