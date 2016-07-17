@@ -6,8 +6,17 @@
 <body>
 <?php
 
+function cambiaMayuscula(&$param)
+{
+	$param = strtolower($param);
+	$param = ucwords($param);
+	return $param;
+}
 
+$cadena = "hOLa MUndO";
+echo cambiaMayuscula($cadena) . "<br>";
 
+echo $cadena;
 
 ?>
 </body>
