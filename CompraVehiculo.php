@@ -8,6 +8,7 @@
 
 		private $precio_base;
 
+		private static $ayuda = 0;
 
 		function CompraVehiculo($gama)
 		{
@@ -59,10 +60,19 @@
 
 		}//end tapiceriaCuero//
 
+		static function descuentoGobierno()
+		{
+			if (date("m-d-y")>"05-01-17")
+			{
+				self::$ayuda = 4500;
+
+			}
+		}
+
 		function precioFinal()
 		{
-
-			return $this->precio_base;
+			$valor_final = $this->precio_base - self::$ayuda;
+			return $valor_final;
 
 		}
 

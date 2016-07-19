@@ -8,6 +8,8 @@
 
 	include("CompraVehiculo.php");
 
+	CompraVehiculo::descuentoGobierno();
+
 	$compraAntonio = new CompraVehiculo("compacto");
 
 	$compraAntonio->climatizador();
