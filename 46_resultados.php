@@ -29,16 +29,19 @@
 
 	while ($fila = mysqli_fetch_array($resultados, MYSQLI_ASSOC))
 	{
-		echo "<table><tr>";
-		echo "<td>";
-		echo $fila['codigoArticulo'] . "</td><td>";
-		echo $fila['seccion'] . "</td><td>";
-		echo $fila['nombreArticulo'] . "</td><td>";
-		echo $fila['precio'] . "</td><td>";
-		echo $fila['fecha'] . "</td><td>";
-		echo $fila['importado'] . "</td><td>";
-		echo $fila['paisOrigen'] . "</td></tr></table>";
-		echo "<br>";
+		//echo "<table><tr>";
+		echo "<form action='46_actualizar.php' method='get' accept-charset='utf-8'>";
+		echo "<input type='text' name='c_art' value='" 		. $fila['codigoArticulo'] 	. "'><br>";
+		echo "<input type='text' name='seccion' value='" 	. $fila['seccion'] 			. "'><br>";
+		echo "<input type='text' name='n_art' value='" 		. $fila['nombreArticulo'] 	. "'><br>";
+		echo "<input type='text' name='precio' value='" 	. $fila['precio'] 			. "'><br>";
+		echo "<input type='text' name='fecha' value='" 		. $fila['fecha'] 			. "'><br>";
+		echo "<input type='text' name='importado' value='" 	. $fila['importado'] 		. "'><br>";
+		echo "<input type='text' name='p_oirg' value='" 	. $fila['paisOrigen'] 		. "'><br>";
+
+		echo "<input type='submit' name='enviando' value='Actualizar'>";
+		echo "</form>";
+
 	}
 
 	mysqli_close($conexion);
