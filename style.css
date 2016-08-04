@@ -1,20 +1,29 @@
-table
-{
-	border: 1px solid #F00;
-	margin-top: 50px;
-	padding: 20px 50px;
-}
-
 h1
 {
 	text-align: center;
-	color: #00F;
-	border-bottom: dotted #0000FF;
-	width: 50%;
-	margin: auto;
 }
 
-body
+table
 {
+	width: 25%;
 	background-color: #FFC;
+	border: 2px solid #F00;
+	margin: auto;
+
+}
+
+.izq
+{
+	text-align: right;
+}
+
+.der
+{
+	text-align: left;
+}
+
+td
+{
+	text-align: center;
+	padding: 10px;
 }
