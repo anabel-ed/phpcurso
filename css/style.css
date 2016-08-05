@@ -1,4 +1,4 @@
-h1
+h1, h2
 {
 	text-align: center;
 }
@@ -26,4 +26,15 @@ td
 {
 	text-align: center;
 	padding: 10px;
+}
+
+.img
+{
+	width: 60%;
+}
+
+img
+{
+	max-width: 100%;
+	height: auto;
 }

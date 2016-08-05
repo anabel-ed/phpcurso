@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>formilario</title>
-	<link rel="stylesheet" href="../style.css">
-</head>
-<body>
-	<h1>Introduce datos</h1>
-	<form action="validarLogin.php" method="post">
+<h1>Introduce datos</h1>
+	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 		<table>
 			<tr>
 				<td class="izq">Login: </td>
@@ -23,5 +14,3 @@
 			</tr>
 		</table>
 	</form>
-</body>
-</html>
