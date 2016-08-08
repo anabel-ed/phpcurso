@@ -63,6 +63,12 @@
 
 	}
 
+	if (isset($_COOKIE["nombreUsuario"])) {
+		echo "Bienvenido " . $_COOKIE["nombreUsuario"];
+	}elseif ($autenticado == true) {
+		echo "Bienvenido " . $_POST["login"];
+	}
+
  ?>
 
 	<h2>Contenido de la pagina</h2>
@@ -77,6 +83,15 @@
 			<td><img src="../img/imagen4.jpg" alt=""></td>
 		</tr>
 	</table>
+
+<?php
+	
+	if ($autenticado == true || isset($_COOKIE["nombreUsuario"])) {
+		include("zonaRegistrados.html");
+	}
+
+?>
+
 <a href="cierre.php"><p>Cerrar Sesión</p></a>
 </body>
 </html>
