@@ -12,7 +12,38 @@
 <?php 
   include("conexion.php");
 
-  $registro = $base->query("SELECT * FROM datos_usuarios")->fetchAll(PDO::FETCH_OBJ); 
+  //--------paginacion----------//
+
+  $tamanio_paginas = 3;
+
+    if (isset($_GET["pagina"]))
+    {
+      if ($_GET["pagina"] == 1) 
+      {
+        header("Location:index.php");
+      }else{
+        $pagina = $_GET["pagina"];
+      }
+    }else{
+      $pagina = 1;
+    }
+
+    $empezar_desde = ($pagina - 1) * $tamanio_paginas;
+
+    $sql = "SELECT * FROM datos_usuarios";
+
+    $resultado = $base->prepare($sql);
+
+    $resultado->execute(array());
+
+    $num_fila = $resultado->rowCount();
+
+    $total_paginas = ceil($num_fila / $tamanio_paginas);
+
+  //----------------------------------------------------------------------------------------//
+
+
+  $registro = $base->query("SELECT * FROM datos_usuarios LIMIT $empezar_desde,$tamanio_paginas")->fetchAll(PDO::FETCH_OBJ); 
 
   if (isset($_POST["cr"]))
   {
@@ -64,9 +95,21 @@
         <td><input type='text' name='Nom' size='10' class='centrado'></td>
         <td><input type='text' name='Ape' size='10' class='centrado'></td>
         <td><input type='text' name='Dir' size='10' class='centrado'></td>
-        <td class='bot'><input type='submit' name='cr' id='cr' value='Insertar'></td></tr>    
+        <td class='bot'><input type='submit' name='cr' id='cr' value='Insertar'></td></tr> 
+        <tr>
+            <td colspan="4"><?php
+
+              for ($i = 1; $i<=$total_paginas ; $i++):
+
+                echo " <a href='?pagina=" . $i . "'>" . $i . "</a>";
+
+              endfor;
+
+              ?></td>
+          </tr>  
     </table>
   </form>
+
 <p>&nbsp;</p>
 </body>
 </html>
